@@ -39,9 +39,11 @@ Download and install dependancy mods AND its dependancies: Affliction Component,
 Download and place the dll file into your \Mods folder.  
 You can configure some things in ModSettings.  
 ## Known Issues
-Sometimes, when you use a remedy, the "treat wound" pop up window won't show up, when this happens, there will be a HUD massage: "That treatment did not do anything". Just ignore this, there will be another HUD saying the right thing. It is most common on the first treatment. It is a bug most probably from Affliction Component's side.
+Sometimes, when you use a remedy, the "treat wound" pop up window won't show up, when this happens, there will be a HUD massage: "That treatment did not do anything".  
+Just ignore this, there will be another HUD saying the right thing. It is most common on the first treatment. It is a bug most probably from Affliction Component's side.  
+This mods needed a lot of tuning and it is yet to final. Feel free to share your experiences and opinion about what should be changed!  
 ## Thank you for downloading!
-Thanks to Systeme Ether, who had some useful tips and send me a guard code!
+Thanks to Systeme Ether, who had some useful tips and send me a guard code!  
 Mod for The Long Dark game created by Hinterland Studios  
 Modtemplate by Digitalzombie  
 Made by BaltaZar  
