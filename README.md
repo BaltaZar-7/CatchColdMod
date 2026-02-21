@@ -18,7 +18,8 @@ You will heal from a cold if the timer runs out. You can furhter decrease the ti
 Negative effects:  
 - Fatigue rate increased (x1.6)
 - Max condition cap (-10%)
-- Hypothermia risk progress faster (hours freezing required x 0.55)  
+- Hypothermia risk progress faster (hours freezing required x 0.55)
+
 If you get Hypothermia, when it ends, you get a Cold Affliction too.  
 If you catch a cold the second time without healing, the timer just resets. However, if you catch it the third time, wihtout healing, a deadly affliction comes..
 ### Pneumonia  
@@ -30,4 +31,5 @@ Effects:
 - Fatigue rate increased (x5)
 - Max condition cap (-40%)
 - Hypothermia risk progress faster (hours freezing required x 0.35)
+
 You need to take 6 antibiotic doses daily (if you take one too soon, it will not count, just as Intestinal Parasites), and wait out the timer.  
