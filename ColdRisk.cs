@@ -62,16 +62,16 @@ namespace CatchColdMod.Afflictions
 
             if (GetRiskValue() >= 100f)
             {
-                Risk = false; // azonnali letiltás
+                Risk = false;
 
                 TryTriggerCold();
 
                 SaveDataManager.ColdRiskMinutes = 0f;
                 m_RiskMinutes = 0f;
 
-                Cure(false); // 🔥 AZONNALI ÖNMEGSZÜNTETÉS
+                Cure(false);
 
-                return; // extra biztonság
+                return;
             }
         }
 
@@ -91,22 +91,22 @@ namespace CatchColdMod.Afflictions
             if (scurvy != null)
             {
                 float normalized = scurvy.GetVitaminCNormalized();
-                MelonLogger.Msg("[Cold] VitaminC normalized: " + normalized);
+                DebugHelper.Log("[CatchColdMod] VitaminC normalized: " + normalized);
 
                 if (normalized < 0.2f) //below 100 units of vitamin C 
                 {
-                    vitaminModifier = 30f; // +30%
-                    MelonLogger.Msg("[Cold] Very low Vitamin C (<20%) → +30% cold chance");
+                    vitaminModifier = 20f; // +20%
+                    DebugHelper.Log("[CatchColdMod] Very low Vitamin C (<20%) → +20% cold chance");
                 }
                 else if (normalized < 0.5f) //below half units (250) of vitamin C 
                 {
-                    vitaminModifier = 10f; // +10%
-                    MelonLogger.Msg("[Cold] Low Vitamin C (<50%) → +10% cold chance");
+                    vitaminModifier = 5f; // +5%
+                    DebugHelper.Log("[CatchColdMod] Low Vitamin C (<50%) → +10% cold chance");
                 }
                 else if (normalized > 0.8f) //above 400 units of vitamin C
                 {
-                    vitaminModifier = -10f; // -10%
-                    MelonLogger.Msg("[Cold] High Vitamin C (>80%) → -10% cold chance");
+                    vitaminModifier = -5f; // -5%
+                    DebugHelper.Log("[CatchColdMod] High Vitamin C (>80%) → -10% cold chance");
                 }
             }
 
@@ -119,7 +119,7 @@ namespace CatchColdMod.Afflictions
                 manager.HasAfflictionOfType(typeof(ColdResistance)))
             {
                 resistanceBonus = 5f;
-                MelonLogger.Msg("[Cold] ColdResistance active → -5% cold chance");
+                DebugHelper.Log("[CatchColdMod] ColdResistance active → -5% cold chance");
             }
 
             float baseChance = CatchColdSettings.Instance.BaseRiskToColdChance;
@@ -130,7 +130,7 @@ namespace CatchColdMod.Afflictions
 
             finalChance = Mathf.Clamp(finalChance, 0f, 100f);
 
-            MelonLogger.Msg("[Cold] Final cold chance: " + finalChance + "% | Roll: " + roll);
+            MelonLogger.Msg("[CatchColdMod] Final cold chance: " + finalChance + "% | Roll: " + roll);
 
             if (roll < finalChance)
             {

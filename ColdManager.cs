@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace CatchColdMod
 {
+    // Checks Temperature, starts Cold Risk if conditions are met
     public class ColdManager
     {
         private const float UPDATE_INTERVAL_MINUTES = 1f;
@@ -14,17 +15,13 @@ namespace CatchColdMod
         private const float WARM_RECOVERY_MULTIPLIER = 1f;
         private static float _loadBlockUntilHour = -1f;
 
-        // --- Singleton ---
         private static ColdManager m_Instance;
         public static ColdManager Instance => m_Instance;
 
-        // --- Konstruktor ---
         public ColdManager()
         {
             m_Instance = this;
         }
-
-        // --- Update metódus ---
         public void Update()
         {
             TimeOfDay tod = GameManager.GetTimeOfDayComponent();
@@ -64,7 +61,7 @@ namespace CatchColdMod
                 {
                     ColdRiskAffliction risk = new ColdRiskAffliction();
                     risk.Start();
-                    DebugHelper.Log("[Cold] Cold risk started");
+                    DebugHelper.Log("[CatchColdMod] Cold risk started");
                 }
         }
         private bool IsValidGameState()

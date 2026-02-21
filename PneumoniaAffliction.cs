@@ -37,7 +37,7 @@ namespace CatchColdMod
         public PneumoniaAffliction()
             : base("Pneumonia",
                   "You caught Cold 3 times in a row.",
-                  "Your cold got worse. This is a serious condition, you must sleep and take antibiotics in order to survive. You need to take your doses one a day, until the treatment is fully done, you won't recover.",
+                  "Your cold got worse, your condition depletes constantly. This is a serious condition, you must sleep and take antibiotics in order to survive. You need to take your doses one a day, until the treatment is fully done, you won't recover.",
                   null,
                   "ico_injury_suffocation",
                   AfflictionBodyArea.Chest)
@@ -94,7 +94,7 @@ namespace CatchColdMod
         }
 
         // ================= TIMER GATE =================
-
+        // To prevent duration end without the full treatment
         private void CheckDurationGate()
         {
             TimeOfDay tod = GameManager.GetTimeOfDayComponent();
@@ -104,18 +104,17 @@ namespace CatchColdMod
             float now = tod.GetHoursPlayedNotPaused();
             float minutesRemaining = (EndTime - now) * 60f;
 
-            // 1 perccel a vége előtt ellenőrzünk
             if (minutesRemaining <= 1f)
             {
+                // Lock if full treatment isnt done
                 if (DosesTaken < 6)
                 {
-                    // Lock timer (loopoltatjuk 1 percre)
                     EndTime = now + (1f / 60f);
                     m_TimerLocked = true;
                 }
                 else if (m_TimerLocked)
                 {
-                    // Feloldjuk, ha közben megkapta a 4-et
+                    // Unlock
                     EndTime = now + (1f / 60f);
                     m_TimerLocked = false;
                 }
@@ -123,25 +122,6 @@ namespace CatchColdMod
         }
 
         // ================= DAMAGE =================
-
-        /*private void ApplyHealthDrain()
-        {
-            Condition cond = GameManager.GetConditionComponent();
-            if (cond == null)
-                return;
-
-            PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
-            bool isSleeping = playerManager != null && playerManager.PlayerIsSleeping();
-
-            float hpPerHourAwake = 0.2f;
-            float hpPerHourSleeping = 0.25f;
-
-            float hpPerHour = isSleeping ? hpPerHourSleeping : hpPerHourAwake;
-            float hpPerMinute = hpPerHour / 60f;
-
-            cond.AddHealth(-hpPerMinute * Time.deltaTime * 60f,
-                DamageSource.Unspecified);
-        }*/
         private float _lastWholeMinute = -1f;
 
         private float GetCurrentWholeMinute()
@@ -178,15 +158,27 @@ namespace CatchColdMod
             bool isSleeping = playerManager != null && playerManager.PlayerIsSleeping();
 
             float hpPerHourAwake = 18f;
-            float hpPerHourSleeping = 3f;
+            float hpPerHourSleeping = 2.1f;
 
             float hpPerMinute = (isSleeping ? hpPerHourSleeping : hpPerHourAwake) / 60f;
+
+            // sleep safety - if you sleep you cant die from pneumonia damage
+            if (isSleeping)
+            {
+                float normalized = cond.GetNormalizedCondition();
+
+                if (normalized < 0.1f)
+                {
+                    DebugHelper.Log("[Pneumonia] Sleep drain prevented (normalized < 0.1)");
+                    return;
+                }
+            }
 
             float hpLoss = hpPerMinute * minuteDelta;
 
             cond.AddHealth(-hpLoss, DamageSource.Unspecified);
 
-            MelonLogger.Msg($"[Pneumonia] Drain: {hpLoss} HP ({minuteDelta} min)");
+            DebugHelper.Log($"[Pneumonia] Drain: {hpLoss} HP ({minuteDelta} min)");
         }
         // ================= REMEDY =================
 

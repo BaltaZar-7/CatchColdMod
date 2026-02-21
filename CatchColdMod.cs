@@ -10,7 +10,7 @@ namespace CatchColdMod
         public override void OnInitializeMelon()
         {
             _coldManager = new ColdManager();
-            MelonLogger.Msg("[Cold] CatchColdMod initialized");
+            MelonLogger.Msg("[CatchColdMod] CatchColdMod initialized");
             DebugHelper.Init();
             CatchColdSettings.OnLoad();
         }

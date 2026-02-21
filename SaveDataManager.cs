@@ -37,7 +37,7 @@ namespace CatchColdMod
             string json = JsonConvert.SerializeObject(data);
             ModData.Save(json, SUFFIX);
 
-            DebugHelper.Log("[Cold] Saved");
+            DebugHelper.Log("[CatchColdMod] Saved");
         }
 
         // ================= LOAD =================
@@ -59,7 +59,7 @@ namespace CatchColdMod
             ColdRiskMinutes = data?.ColdRiskMinutes ?? 0f;
             PneumoniaDosesTaken = data?.PneumoniaDosesTaken ?? 0;
 
-            DebugHelper.Log("[Cold] Loaded");
+            DebugHelper.Log("[CatchColdMod] Loaded");
         }
 
         // ================= NEW / RESET =================
@@ -72,7 +72,7 @@ namespace CatchColdMod
 
             PneumoniaDosesTaken = 0;
 
-            DebugHelper.Log("[Cold] Clearing data for new game");
+            DebugHelper.Log("[CatchColdMod] Clearing data for new game");
         }
     }
 

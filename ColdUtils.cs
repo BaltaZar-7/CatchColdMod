@@ -12,65 +12,6 @@ namespace CatchColdMod
         private static bool _isEscalatingToPneumonia = false;
         public static float NextRiskAllowedHour = 0f;
 
-
-        public static bool HasActiveCold()
-        {
-            AfflictionManager manager = AfflictionManager.GetAfflictionManagerInstance();
-            if (manager == null)
-                return false;
-
-            foreach (CustomAffliction aff in manager.m_Afflictions)
-                if (aff is ColdAffliction)
-                    return true;
-
-            return false;
-        }
-       /* public static void ApplyCold()
-        {
-            if (_isEscalatingToPneumonia)
-                return;
-
-            AfflictionManager manager = AfflictionManager.GetAfflictionManagerInstance();
-            if (manager == null)
-                return;
-
-            SaveDataManager.FailedColdRolls = 0;
-            RemoveColdResistance();
-
-
-            SaveDataManager.ColdRiskMinutes = 0f;
-
-            SaveDataManager.ColdPhase++;
-
-            if (SaveDataManager.ColdPhase == 2)
-            {
-                HUDMessage.AddMessage("You have caught a cold again without healing, next time it can get serious!");
-                MelonLogger.Msg("[CatchColdMod] You have caught a cold again without healing, next time it can get serious!");
-            }
-
-            DebugHelper.Log("[Cold] Infection. Phase=" + SaveDataManager.ColdPhase);
-
-            ColdAffliction cold = new ColdAffliction();
-            cold.Start();
-
-            TimeOfDay tod = GameManager.GetTimeOfDayComponent();
-            if (tod != null)
-            {
-                ColdUtils.NextRiskAllowedHour = tod.GetHoursPlayedNotPaused() + 0.05f;
-            }
-            // ===== PNEUMONIA ESCALATION =====
-            if (SaveDataManager.ColdPhase >= 3)
-            {
-                _isEscalatingToPneumonia = true;
-                DebugHelper.Log("[Cold] Escalating to Pneumonia");
-
-                SaveDataManager.ColdPhase = 0;
-
-                MelonCoroutines.Start(EscalateToPneumoniaNextFrame());
-
-                return;
-            }
-        }*/
         public static void ApplyCold()
         {
             if (ColdUtils.IsEscalatingToPneumonia)
@@ -92,25 +33,13 @@ namespace CatchColdMod
                 MelonLogger.Msg("[CatchColdMod] You have caught a cold again without healing, next time it can get serious!");
             }
 
-            DebugHelper.Log("[Cold] Infection. Phase=" + SaveDataManager.ColdPhase);
+            DebugHelper.Log("[CatchColdMod] Infection. Phase=" + SaveDataManager.ColdPhase);
 
-            // ===== PNEUMONIA ESCALATION FIRST =====
+            // PNEUMONIA ESCALATION
             if (SaveDataManager.ColdPhase >= 3)
             {
                 _isEscalatingToPneumonia = true;
-                DebugHelper.Log("[Cold] Escalating to Pneumonia");
-
-                // 🔥 EZ HIÁNYZOTT AZ ÚJ VERZIÓBÓL
-                /*System.Collections.Generic.List<CustomAffliction> afflictionsCopy =
-                    new System.Collections.Generic.List<CustomAffliction>(manager.m_Afflictions);
-
-                foreach (CustomAffliction affliction in afflictionsCopy)
-                {
-                    if (affliction is ColdRiskAffliction)
-                    {
-                        affliction.Cure(false);
-                    }
-                }*/
+                DebugHelper.Log("[CatchColdMod] Escalating to Pneumonia");
 
                 SaveDataManager.ColdPhase = 0;
 
@@ -118,11 +47,11 @@ namespace CatchColdMod
                 return;
             }
 
-            // CSAK HA NINCS ESCALATION
+            // if not escalating
             ColdAffliction cold = new ColdAffliction();
             cold.Start();
 
-            // Autosave csak sikeres infection után
+            // Save
             MelonCoroutines.Start(DelayedSurvivalSave());
 
             TimeOfDay tod = GameManager.GetTimeOfDayComponent();
@@ -131,35 +60,9 @@ namespace CatchColdMod
                 ColdUtils.NextRiskAllowedHour = tod.GetHoursPlayedNotPaused() + 0.05f;
             }
         }
-        /*private static System.Collections.IEnumerator EscalateToPneumoniaNextFrame()
-        {
-            yield return null; // 1 frame várakozás
-
-            AfflictionManager manager = AfflictionManager.GetAfflictionManagerInstance();
-            if (manager == null)
-            {
-                _isEscalatingToPneumonia = false;
-                yield break;
-            }
-
-
-            // Cold törlése biztonságosan
-            System.Collections.Generic.List<CustomAffliction> copy =
-                new System.Collections.Generic.List<CustomAffliction>(manager.m_Afflictions);
-
-            foreach (CustomAffliction aff in copy)
-            {
-                if (aff is ColdAffliction)
-                {
-                    aff.Cure(false);
-                }
-            }
-            ApplyPneumonia();
-            _isEscalatingToPneumonia = false;
-        }*/
+        // Had some troubles with Affliction Component, so I added a delay here
         private static System.Collections.IEnumerator EscalateToPneumoniaSafe()
         {
-            // Hagyd teljesen kifutni az AC update ciklust
             yield return null;
             yield return null;
             yield return null;
@@ -172,7 +75,6 @@ namespace CatchColdMod
                 yield break;
             }
 
-            // 🔥 VISSZAFELÉ ITERÁLÁS
             for (int i = manager.m_Afflictions.Count - 1; i >= 0; i--)
             {
                 CustomAffliction aff = manager.m_Afflictions[i];
@@ -183,7 +85,7 @@ namespace CatchColdMod
                 }
             }
 
-            // adjunk még 1 frame-et a törlés után
+            yield return null;
             yield return null;
 
             ApplyPneumonia();

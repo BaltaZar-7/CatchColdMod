@@ -14,16 +14,17 @@ namespace CatchColdMod.Afflictions
 	{
         public InstanceType Type { get; set; } = InstanceType.Single;
 
-		public float Duration { get; set; } = CatchColdSettings.Instance.ColdDurationHours;
+		public float Duration { get; set; } = CatchColdSettings.Instance.ColdDurationDays * 24f;
         public float EndTime { get; set; }
         public bool InstantHeal { get; set; } = false;
         public static bool IsColdActive { get; private set; }
         public bool IsEscalatingCold { get; set; }
 
+
         public Tuple<string, int, int>[] RemedyItems { get; set; } =
 		{
-			Tuple.Create("GEAR_BurdockTea", 1, 1),
-			Tuple.Create("GEAR_ReishiTea", 1, 1),
+			Tuple.Create("GEAR_BurdockTea", 1, 99),
+			Tuple.Create("GEAR_ReishiTea", 1, 99),
 		};
 
         public Tuple<string, int, int>[] AltRemedyItems { get; set; } =
@@ -33,7 +34,7 @@ namespace CatchColdMod.Afflictions
 		};
 
 		public ColdAffliction(): base("Cold", "Too much freezing, less warming up.",
-            "You caught a cold. Max condition is reduced a little, fatigue rate is increased and you gain hypothermia faster. Reapeat catching cold and it will get worse. You recover if the afflictions timer runs out. You can shorten the duration by drinking teas, and sleep.",
+            "You caught a cold. You recover if the affliction's timer runs out. You can shorten the duration by drinking teas, and sleep. Max condition is reduced, fatigue and hypothermia rate is increased.",
             null, "ico_injury_PoorCirculation", AfflictionBodyArea.Chest)
 		{
 			float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
@@ -63,7 +64,7 @@ namespace CatchColdMod.Afflictions
 
             if (ColdUtils.IsEscalatingToPneumonia)
             {
-                return; // pneumonia alatt nem reinfectelünk
+                return;
             }
 
             if (IsEscalatingCold)
@@ -71,7 +72,7 @@ namespace CatchColdMod.Afflictions
                 cold.IsEscalatingCold = true;
             }
 
-            DebugHelper.Log("[Cold] Reinfected. Phase=" + SaveDataManager.ColdPhase);
+            DebugHelper.Log("[CatchColdMod] Reinfected. Phase=" + SaveDataManager.ColdPhase);
 
             TimeOfDay tod = GameManager.GetTimeOfDayComponent();
             if (tod != null)
@@ -84,7 +85,7 @@ namespace CatchColdMod.Afflictions
         }
         public void CureSymptoms()
 		{
-			// nincs külön tünet
+			// none
 		}
 
 		public void OnCure()
@@ -92,7 +93,7 @@ namespace CatchColdMod.Afflictions
 			IsColdActive = false;
             SaveDataManager.ColdRiskMinutes = 0f;
             SaveDataManager.ColdPhase = 0;
-            DebugHelper.Log("[Cold] Cold cured");
+            DebugHelper.Log("[CatchColdMod] Cold cured");
         }
         public void MarkRemedyTaken()
         {

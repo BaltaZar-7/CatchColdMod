@@ -34,13 +34,14 @@ namespace CatchColdMod
 
         public void OnFoundExistingInstance(CustomAffliction existing)
         {
-            // nincs reinfection logika
+            // none
         }
 
         public void OnCure()
         {
             IsActive = false;
             DebugHelper.Log("[ColdResistance] Removed");
+            HUDMessage.AddMessage("Cold Resistance Buff Lost!");
         }
     }
 }

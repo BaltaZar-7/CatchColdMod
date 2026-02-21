@@ -11,6 +11,7 @@ using UnityEngine;
 namespace CatchColdMod
 
 {
+    // Cold - reduce duration Teas (firstaid types)
     [HarmonyPatch(typeof(PlayerManager), "FirstAidConsumed")]
     internal static class ColdTeaPatch
     {
@@ -42,9 +43,6 @@ namespace CatchColdMod
                 cold.EndTime -= 2f;
                 cold.MarkRemedyTaken();
 
-                /*if (cold.EndTime <= now)
-                    cold.Cure(false);*/
-
                 HUDMessage.AddMessage("Tea reduced Cold duration by 2h");
                 MelonLogger.Msg("[CatchColdMod] Tea reduced Cold duration by 2h");
 
@@ -59,6 +57,7 @@ namespace CatchColdMod
                 || name == "GEAR_RoseHipTea";
         }
     }
+    // Cold - reduce duration Teas (food types)
     [HarmonyPatch(typeof(PlayerManager), nameof(PlayerManager.OnEatingComplete),
     new Type[] { typeof(bool), typeof(bool), typeof(float) })]
     internal static class ColdTeaPatchFood
@@ -111,6 +110,7 @@ namespace CatchColdMod
             }
         }
     }
+    // Pneumonia remedies
     [HarmonyPatch(typeof(PlayerManager), "FirstAidConsumed")]
     internal static class PneumoniaAntibioticPatch
     {
@@ -173,14 +173,14 @@ namespace CatchColdMod
                 pneumonia.MarkRemedyTaken();
 
                 HUDMessage.AddMessage(
-                    "Antibiotic dose taken (" + pneumonia.DosesTaken + "/6)."
+                    "Antibiotic dose taken (" + pneumonia.DosesTaken + "/6). Wait 24 hours for the next dose!"
                 );
 
                 break;
             }
         }
     }
-
+    // Cold - Sleep counts double (duration reduction)
     [HarmonyPatch(typeof(Rest), nameof(Rest.EndSleeping))]
     internal static class ColdSleepPatch
     {
@@ -207,6 +207,7 @@ namespace CatchColdMod
             }
         }
     }
+    // Cold - max hp cap
     [HarmonyPatch(typeof(Condition), nameof(Condition.GetAdjustedMaxHPModifier))]
     internal static class ColdMaxHPModifierPatch
     {
@@ -220,6 +221,7 @@ namespace CatchColdMod
             __result -= 10f; // -10 max HP
         }
     }
+    // Pneumonia - max hp cap
     [HarmonyPatch(typeof(Condition), nameof(Condition.GetAdjustedMaxHPModifier))]
     internal static class PneumoniaMaxHPModifierPatch
     {
@@ -230,13 +232,14 @@ namespace CatchColdMod
                 !manager.HasAfflictionOfType(typeof(PneumoniaAffliction)))
                 return;
 
-            __result -= 50f; // -45 max HP
+            __result -= 40f; // -40 max HP
         }
     }
-    [HarmonyPatch(typeof(Fatigue), "CalculateTotalFatigueBurnPerHour")]
+    // Fatigue rate increase (for both)
+    [HarmonyPatch(typeof(Fatigue), "CalculateFatigueIncrease")]
     internal static class ColdFatiguePneumoniaPatch
     {
-        private static void Postfix(Fatigue __instance)
+        private static void Postfix(Fatigue __instance, float realtimeSeconds, ref float __result)
         {
             AfflictionManager manager = AfflictionManager.GetAfflictionManagerInstance();
             if (manager == null)
@@ -244,14 +247,15 @@ namespace CatchColdMod
 
             if (manager.HasAfflictionOfType(typeof(PneumoniaAffliction)))
             {
-                __instance.m_TotalFatigueBurnPerHour += 80f;
+                __result *= 5f;   // 500%
             }
             else if (manager.HasAfflictionOfType(typeof(ColdAffliction)))
             {
-                __instance.m_TotalFatigueBurnPerHour += 30f;
+                __result *= 1.6f; // 160%
             }
         }
     }
+    // Allow unlimited sleep for pneumonia (in order to prevent low fatigue rate settings to not allowed to sleep)
     [HarmonyPatch(typeof(Rest), nameof(Rest.AllowUnlimitedSleep))]
     internal static class ColdUnlimitedSleepPatch
     {
@@ -267,6 +271,7 @@ namespace CatchColdMod
             }
         }
     }
+    // Hypothermia causing Cold too
     [HarmonyPatch(typeof(Hypothermia), "HypothermiaEnd")]
     internal static class HypothermiaEndPatch
     {
@@ -291,6 +296,7 @@ namespace CatchColdMod
             ColdUtils.ApplyCold();
         }
     }
+    // Cold resistance buff get +1 bonus temp
     [HarmonyPatch(typeof(Freezing), "CalculateBodyTemperature")]
     internal static class ColdResistanceTempPatch
     {
@@ -302,10 +308,11 @@ namespace CatchColdMod
 
             if (manager.HasAfflictionOfType(typeof(ColdResistance)))
             {
-                __result += 10f;
+                __result += 1f;
             }
         }
     }
+    // Hypothermia risk rate increased (both)
     [HarmonyPatch(typeof(Hypothermia), "Update")]
     internal static class HypothermiaThresholdModifierPatch
     {
