@@ -19,7 +19,15 @@ Negative effects:
 - Fatigue rate increased (x1.6)
 - Max condition cap (-10%)
 - Hypothermia risk progress faster (hours freezing required x 0.55)  
+If you get Hypothermia, when it ends, you get a Cold Affliction too.  
 If you catch a cold the second time without healing, the timer just resets. However, if you catch it the third time, wihtout healing, a deadly affliction comes..
 ### Pneumonia  
 If you catch a Cold three times in a row without healing your common Cold evolves into Pneumonia. Which can easily get you faded into the long dark:  
-With this affliction, you cannot fasten
+With this affliction, you cannot shorten the duration of it, you need to treat it daily with antibiotics and fight the condition damage.  
+If you sleep, the damage is much less harsh and if you are below 10% condition AND sleeping, the drain stops. So you cannot die in your sleep from pneumonia, but you can while awake.  
+Effects:  
+- Condition drain (slower while sleeping. Rest as a resource is diabled while got pneumonia)
+- Fatigue rate increased (x5)
+- Max condition cap (-40%)
+- Hypothermia risk progress faster (hours freezing required x 0.35)
+You need to take 6 antibiotic doses daily (if you take one too soon, it will not count, just as Intestinal Parasites), and wait out the timer.  
