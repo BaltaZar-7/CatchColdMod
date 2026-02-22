@@ -73,6 +73,13 @@ namespace CatchColdMod.Afflictions
 
                 return;
             }
+            if (m_RiskMinutes <= 0f)
+            {
+                DebugHelper.Log("[CatchColdMod] Cold risk fully removed");
+                SaveDataManager.ColdRiskMinutes = 0f;
+                Cure(false);
+                return;
+            }
         }
 
         public override void OnUpdate()
