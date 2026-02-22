@@ -1,7 +1,7 @@
 # Catch Cold Mod  
 - Adds 2 brand new affliction: Cold and Pneumonia  
 - Adds a new buff: Cold Resistance
-![CatchCold](https://github.com/user-attachments/assets/6dbf68c1-4854-457c-81e4-c37306535df1)
+![CatchColduj](https://github.com/user-attachments/assets/085a6b87-e9c7-4ca3-a284-6a23d27e4247)
 ## Description
 ### Cold Risk
 If your are below the third of your temperature meter (below 33%), then you build up Cold Risk. The duration of this can be modified in the settings menu.  
