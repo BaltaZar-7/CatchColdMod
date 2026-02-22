@@ -46,6 +46,18 @@
         </Reference>
     </ItemDefinitionGroup>
     <ItemGroup>
+      <Compile Remove="AfflictionComponentCrashGuards.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <None Remove="Resources\cold.png" />
+      <None Remove="Resources\coldresistance.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="Resources\cold.png" />
+      <EmbeddedResource Include="Resources\coldresistance.png" />
+      <EmbeddedResource Include="Resources\snowflake.png" />
+    </ItemGroup>
+    <ItemGroup>
       <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     </ItemGroup>
 

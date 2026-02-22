@@ -54,7 +54,8 @@ namespace CatchColdMod
         {
             return name == "GEAR_ReishiTea"
                 || name == "GEAR_BurdockTea"
-                || name == "GEAR_RoseHipTea";
+                || name == "GEAR_RoseHipTea"
+                || name == "GEAR_BirchbarkTea";
         }
     }
     // Cold - reduce duration Teas (food types)

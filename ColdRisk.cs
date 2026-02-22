@@ -18,7 +18,7 @@ namespace CatchColdMod.Afflictions
         private float m_RiskMinutes;
         private float m_LastUpdateHour;
 
-        public ColdRiskAffliction(): base("Cold Risk","The cold","You are at risk of catching a cold. To decrease the risk, warm yourself up completely!",null, "ico_injury_PoorCirculation", AfflictionBodyArea.Chest)
+        public ColdRiskAffliction(): base("Cold Risk","The cold","You are at risk of catching a cold. To decrease the risk, warm yourself up completely!",null, "CatchColdMod.Resources.snowflake.png", AfflictionBodyArea.Chest, true)
         {
             m_LastUpdateHour = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
             m_RiskMinutes = SaveDataManager.ColdRiskMinutes;

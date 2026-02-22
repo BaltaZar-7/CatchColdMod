@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 //Mods typically use 3 numbers. For example: 1.2.1
 //The mod version need specified in three places.
 [assembly: AssemblyVersion("1.0.0")]
-[assembly: AssemblyFileVersion("1.0.0")]
-[assembly: MelonInfo(typeof(CatchColdMod.Main), "CatchColdMod", "1.0.0", "BaltaZar", null)]
+[assembly: AssemblyFileVersion("1.1.0")]
+[assembly: MelonInfo(typeof(CatchColdMod.Main), "CatchColdMod", "1.1.0", "BaltaZar", null)]
 
 //This tells MelonLoader that the mod is only for The Long Dark.
 [assembly: MelonGame("Hinterland", "TheLongDark")]

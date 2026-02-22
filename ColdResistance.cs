@@ -22,8 +22,8 @@ namespace CatchColdMod
                   "You resisted catching a cold twice in a row",
                   "Your immune system is stronger. You are more likely to be resistant to catching a cold and you gained 1 °C bonus for temperature. You lose this bonus if you catch a cold.",
                   null,
-                  "ico_injury_pain",
-                  AfflictionBodyArea.Chest)
+                  "CatchColdMod.Resources.coldresistance.png",
+                  AfflictionBodyArea.Chest, true)
         {
         }
 

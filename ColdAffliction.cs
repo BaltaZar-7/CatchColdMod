@@ -23,7 +23,7 @@ namespace CatchColdMod.Afflictions
 
         public Tuple<string, int, int>[] RemedyItems { get; set; } =
 		{
-			Tuple.Create("GEAR_BurdockTea", 1, 99),
+			Tuple.Create("GEAR_BirchbarkTea", 1, 99),
 			Tuple.Create("GEAR_ReishiTea", 1, 99),
 		};
 
@@ -35,7 +35,7 @@ namespace CatchColdMod.Afflictions
 
 		public ColdAffliction(): base("Cold", "Too much freezing, less warming up.",
             "You caught a cold. You recover if the affliction's timer runs out. You can shorten the duration by drinking teas, and sleep. Max condition is reduced, fatigue and hypothermia rate is increased.",
-            null, "ico_injury_PoorCirculation", AfflictionBodyArea.Chest)
+            null, "CatchColdMod.Resources.cold.png", AfflictionBodyArea.Chest, true)
 		{
 			float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
 			EndTime = now + Duration;

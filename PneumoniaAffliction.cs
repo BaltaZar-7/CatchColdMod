@@ -21,6 +21,8 @@ namespace CatchColdMod
         public float LastDoseTime = -1f;
         public float FullDuration;
         private bool m_DoseReminderShown;
+        private bool _coughStarted = false;
+        private float _coughBlockUntil = -1f;
         public int DosesTaken
         {
             get { return SaveDataManager.PneumoniaDosesTaken; }
@@ -68,6 +70,12 @@ namespace CatchColdMod
             CheckDurationGate();
             ApplyHealthDrain();
             CheckDoseReminder();
+
+            if (!_coughStarted)
+            {
+                StartCough();
+                _coughStarted = true;
+            }
         }
         private void CheckDoseReminder()
         {
@@ -157,22 +165,27 @@ namespace CatchColdMod
             PlayerManager playerManager = GameManager.GetPlayerManagerComponent();
             bool isSleeping = playerManager != null && playerManager.PlayerIsSleeping();
 
-            float hpPerHourAwake = 18f;
-            float hpPerHourSleeping = 2.1f;
+            float hpPerHourAwakeNormal = 16f;
+            float hpPerHourAwakeRemedy = 4f;
+            float hpPerHourSleeping = 1.85f;
 
-            float hpPerMinute = (isSleeping ? hpPerHourSleeping : hpPerHourAwake) / 60f;
+            float hpPerHour;
 
-            // sleep safety - if you sleep you cant die from pneumonia damage
             if (isSleeping)
             {
-                float normalized = cond.GetNormalizedCondition();
-
-                if (normalized < 0.1f)
-                {
-                    DebugHelper.Log("[Pneumonia] Sleep drain prevented (normalized < 0.1)");
-                    return;
-                }
+                hpPerHour = hpPerHourSleeping;
             }
+            else
+            {
+                float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
+                float hoursSinceLastDose = now - LastDoseTime;
+
+                bool remedyActive = DosesTaken > 0 && hoursSinceLastDose < 24f;
+
+                hpPerHour = remedyActive ? hpPerHourAwakeRemedy : hpPerHourAwakeNormal;
+            }
+
+            float hpPerMinute = hpPerHour / 60f;
 
             float hpLoss = hpPerMinute * minuteDelta;
 
@@ -206,10 +219,101 @@ namespace CatchColdMod
             SaveDataManager.PneumoniaDosesTaken = 0;
             IsPneumoniaActive = false;
             DebugHelper.Log("[Pneumonia] Cured");
+            StopCough();
+            _coughStarted = false;
+
+            // 1 másodperc blokkolás (in-game időben)
+            float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
+            _coughBlockUntil = now + (1f / 3600f); // 1 real second
         }
 
         public void OnFoundExistingInstance(CustomAffliction existing)
         {
+        }
+
+        private float _nextCoughTime = -1f;
+
+        /*private void UpdateCough()
+        {
+            PlayerManager pm = GameManager.GetPlayerManagerComponent();
+            if (pm == null)
+            {
+                DebugHelper.Log("[Pneumonia] UpdateCough: PlayerManager null");
+                return;
+            }
+
+            if (pm.PlayerIsSleeping())
+            {
+                DebugHelper.Log("[Pneumonia] UpdateCough: Player sleeping");
+                return;
+            }
+
+            TimeOfDay tod = GameManager.GetTimeOfDayComponent();
+            if (tod == null)
+            {
+                DebugHelper.Log("[Pneumonia] UpdateCough: TimeOfDay null");
+                return;
+            }
+
+            float now = tod.GetHoursPlayedNotPaused();
+
+            if (_nextCoughTime < 0f)
+            {
+                _nextCoughTime = now + 0.01f; // DEBUG: 36 sec
+                DebugHelper.Log("[Pneumonia] Cough timer initialized");
+            }
+
+            if (now >= _nextCoughTime)
+            {
+                DebugHelper.Log("[Pneumonia] Attempting cough...");
+
+                PlayerCough cough = GameManager.GetPlayerCough();
+
+                if (cough == null)
+                {
+                    DebugHelper.Log("[Pneumonia] PlayerCough is NULL");
+                }
+                else
+                {
+                    DebugHelper.Log("[Pneumonia] PlayerCough found. Active=" + cough.IsActive());
+
+                    if (!cough.IsActive())
+                    {
+                        DebugHelper.Log("[Pneumonia] Calling MaybeStart");
+                        cough.MaybeStart("Play_SuffocationCough");
+                    }
+                }
+
+                _nextCoughTime = now + 0.02f; // DEBUG: kb 3 perc
+            }
+        }*/
+        private void StartCough()
+        {
+            if (!IsPneumoniaActive)
+                return;
+
+            float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
+
+            // Ha cure után 1 másodpercig blokkolva van
+            if (now < _coughBlockUntil)
+                return;
+
+            PlayerCough cough = GameManager.GetPlayerCough();
+            if (cough != null && !cough.IsActive())
+            {
+                DebugHelper.Log("[Pneumonia] Starting cough");
+                cough.MaybeStart("Play_SuffocationCough");
+                _coughStarted = true;
+            }
+        }
+        private void StopCough()
+        {
+            PlayerCough cough = GameManager.GetPlayerCough();
+            if (cough != null && cough.IsActive())
+            {
+                DebugHelper.Log("[Pneumonia] Stopping cough");
+                cough.Stop();
+            }
         }
     }
 }
