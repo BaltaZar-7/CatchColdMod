@@ -13,7 +13,7 @@ If the risk timer reaches 100%, then you have a roll to catch a Cold Affliction.
 ### Cold Affliction  
 So if you are unlucky with the roll, then you catch a Cold. Which is not a deadly affliction, but adds a little immersion. Here are the details:  
 You will heal from a cold if the timer runs out. You can furhter decrease the timer in two ways:  
-- Every tea reduces the timer by 2 hours  
+- Every tea reduces the timer by 2 hours (Pine needle tea by Marcy is included!)  
 - Sleep counts double (e.g. if you sleep 2 hours, the timer lost 4 hours)
 
 Negative effects:  
