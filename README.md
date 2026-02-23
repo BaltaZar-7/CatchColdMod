@@ -26,6 +26,7 @@ If you catch a cold the second time without healing, the timer just resets. Howe
 ### Pneumonia  
 If you catch a Cold three times in a row without healing your common Cold evolves into Pneumonia. Which can easily get you faded into the long dark:  
 With this affliction, you cannot shorten the duration of it, you need to treat it daily with antibiotics and fight the condition damage.  
+If you take your daily dose of antibiotics, then the condition damage is a lot less harsh.  
 If you sleep, the damage is much less harsh and if you are below 10% condition AND sleeping, the drain stops. So you cannot die in your sleep from pneumonia, but you can while awake.  
 Effects:  
 - Condition drain (slower while sleeping. Rest as a resource is diabled while got pneumonia)
@@ -33,7 +34,7 @@ Effects:
 - Max condition cap (-40%)
 - Hypothermia risk progress faster (hours freezing required x 0.35)
 
-You need to take 6 antibiotic doses daily (if you take one too soon, it will not count, just as Intestinal Parasites), and wait out the timer. You cannot shorten the timer on this one!  
+You need to take 6 antibiotic doses daily (if you take one too soon, it will not count, just as Intestinal Parasites), and wait out the timer. You cannot shorten the timer on this affliction!  
 ## Installation
 Download and install dependancy mods AND its dependancies: Affliction Component, Moddata, ModSettings  
 Download and place the dll file into your \Mods folder.  
