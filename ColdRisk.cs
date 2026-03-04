@@ -17,9 +17,15 @@ namespace CatchColdMod.Afflictions
 
         private float m_RiskMinutes;
         private float m_LastUpdateHour;
+        private float m_TimeAtMaxRisk = 0f;
 
         public ColdRiskAffliction(): base("Cold Risk","The cold","You are at risk of catching a cold. To decrease the risk, warm yourself up completely!",null, "CatchColdMod.Resources.snowflake.png", AfflictionBodyArea.Chest, true)
         {
+            AfflictionManager manager = AfflictionManager.GetAfflictionManagerInstance();
+            if (manager != null && manager.HasAfflictionOfType(typeof(ColdRiskAffliction)))
+            {
+                return;
+            }
             m_LastUpdateHour = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
             m_RiskMinutes = SaveDataManager.ColdRiskMinutes;
         }
@@ -62,16 +68,24 @@ namespace CatchColdMod.Afflictions
 
             if (GetRiskValue() >= 100f)
             {
-                Risk = false;
+                m_TimeAtMaxRisk += Time.deltaTime;
 
-                TryTriggerCold();
+                if (m_TimeAtMaxRisk >= 0.1f)
+                {
+                    Risk = false;
+                    TryTriggerCold();
 
-                SaveDataManager.ColdRiskMinutes = 0f;
-                m_RiskMinutes = 0f;
+                    SaveDataManager.ColdRiskMinutes = 0f;
+                    m_RiskMinutes = 0f;
 
-                Cure(false);
+                    Cure(false);
+                }
 
                 return;
+            }
+            else
+            {
+                m_TimeAtMaxRisk = 0f;
             }
             if (m_RiskMinutes <= 0f)
             {

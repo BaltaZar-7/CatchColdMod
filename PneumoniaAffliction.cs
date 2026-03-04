@@ -222,9 +222,9 @@ namespace CatchColdMod
             StopCough();
             _coughStarted = false;
 
-            // 1 másodperc blokkolás (in-game időben)
+            // Had some problem coughing not stopping after cure
             float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
-            _coughBlockUntil = now + (1f / 3600f); // 1 real second
+            _coughBlockUntil = now + (1f / 3600f);
         }
 
         public void OnFoundExistingInstance(CustomAffliction existing)
@@ -233,60 +233,6 @@ namespace CatchColdMod
 
         private float _nextCoughTime = -1f;
 
-        /*private void UpdateCough()
-        {
-            PlayerManager pm = GameManager.GetPlayerManagerComponent();
-            if (pm == null)
-            {
-                DebugHelper.Log("[Pneumonia] UpdateCough: PlayerManager null");
-                return;
-            }
-
-            if (pm.PlayerIsSleeping())
-            {
-                DebugHelper.Log("[Pneumonia] UpdateCough: Player sleeping");
-                return;
-            }
-
-            TimeOfDay tod = GameManager.GetTimeOfDayComponent();
-            if (tod == null)
-            {
-                DebugHelper.Log("[Pneumonia] UpdateCough: TimeOfDay null");
-                return;
-            }
-
-            float now = tod.GetHoursPlayedNotPaused();
-
-            if (_nextCoughTime < 0f)
-            {
-                _nextCoughTime = now + 0.01f; // DEBUG: 36 sec
-                DebugHelper.Log("[Pneumonia] Cough timer initialized");
-            }
-
-            if (now >= _nextCoughTime)
-            {
-                DebugHelper.Log("[Pneumonia] Attempting cough...");
-
-                PlayerCough cough = GameManager.GetPlayerCough();
-
-                if (cough == null)
-                {
-                    DebugHelper.Log("[Pneumonia] PlayerCough is NULL");
-                }
-                else
-                {
-                    DebugHelper.Log("[Pneumonia] PlayerCough found. Active=" + cough.IsActive());
-
-                    if (!cough.IsActive())
-                    {
-                        DebugHelper.Log("[Pneumonia] Calling MaybeStart");
-                        cough.MaybeStart("Play_SuffocationCough");
-                    }
-                }
-
-                _nextCoughTime = now + 0.02f; // DEBUG: kb 3 perc
-            }
-        }*/
         private void StartCough()
         {
             if (!IsPneumoniaActive)
@@ -294,7 +240,6 @@ namespace CatchColdMod
 
             float now = GameManager.GetTimeOfDayComponent().GetHoursPlayedNotPaused();
 
-            // Ha cure után 1 másodpercig blokkolva van
             if (now < _coughBlockUntil)
                 return;
 

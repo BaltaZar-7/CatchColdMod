@@ -54,8 +54,7 @@ namespace CatchColdMod
         {
             return name == "GEAR_ReishiTea"
                 || name == "GEAR_BurdockTea"
-                || name == "GEAR_RoseHipTea"
-                || name == "GEAR_BirchbarkTea";
+                || name == "GEAR_RoseHipTea";
         }
     }
     // Cold - reduce duration Teas (food types)
@@ -81,7 +80,8 @@ namespace CatchColdMod
                 return;
 
             if (gearName != "GEAR_GreenTeaCup" &&
-                gearName != "GEAR_PineNeedleTea")
+                gearName != "GEAR_PineNeedleTea" &&
+                gearName != "GEAR_BirchbarkTea")
                 return;
 
             if (!ColdAffliction.IsColdActive)
@@ -338,11 +338,11 @@ namespace CatchColdMod
 
             if (manager.HasAfflictionOfType(typeof(PneumoniaAffliction)))
             {
-                modifiedValue *= 0.35f; //
+                modifiedValue *= 0.35f;
             }
             else if (manager.HasAfflictionOfType(typeof(ColdAffliction)))
             {
-                modifiedValue *= 0.55f; //
+                modifiedValue *= 0.55f;
             }
 
             __instance.m_HoursSpentFreezingRequired = modifiedValue;

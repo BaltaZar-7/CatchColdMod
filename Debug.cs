@@ -8,12 +8,14 @@ namespace CatchColdMod
     internal static class DebugHelper
     {
         private static bool _debugEnabled = false;
-        private static readonly string DebugFile = Path.Combine(MelonEnvironment.UserDataDirectory, "CatchCold.debug");
+        private static readonly string DebugFile = Path.Combine(MelonEnvironment.UserDataDirectory, "catchcold.debug");
 
         internal static void Init()
         {
             _debugEnabled = File.Exists(DebugFile);
-            MelonLogger.Msg("[CatchColdMod] Debug ENABLED");
+
+            if (_debugEnabled)
+                MelonLogger.Msg("[CatchColdMod] Debug ENABLED");
         }
 
         internal static void Log(string msg)
