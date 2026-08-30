@@ -12,8 +12,9 @@ namespace CatchColdMod
     {
         private const float UPDATE_INTERVAL_MINUTES = 1f;
         private const float BUILDUP_THRESHOLD = 50f;
-        private const float WARM_RECOVERY_MULTIPLIER = 1f;
         private static float _loadBlockUntilHour = -1f;
+        //private const float RISK_START_COOLDOWN_SECONDS = 2f;
+        //private static float _nextRiskStartAllowedRealtime = 0f;
 
         private static ColdManager m_Instance;
         public static ColdManager Instance => m_Instance;
@@ -55,13 +56,13 @@ namespace CatchColdMod
             if (manager.HasAfflictionOfType(typeof(ColdRiskAffliction)))
                 return;
 
-            bool isColdOrWorse = freezing.m_CurrentFreezing >= freezing.m_ColdThreshold;
+            bool isColdOrWorse = freezing.m_CurrentFreezing > freezing.m_ColdThreshold;
 
             if (isColdOrWorse)
                 {
-                    ColdRiskAffliction risk = new ColdRiskAffliction();
+                ColdRiskAffliction risk = new ColdRiskAffliction();
                     risk.Start();
-                    DebugHelper.Log("[CatchColdMod] Cold risk started");
+                DebugHelper.Log("[CatchColdMod] Cold risk started");
                 }
         }
         private bool IsValidGameState()

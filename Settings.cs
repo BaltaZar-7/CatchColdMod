@@ -11,7 +11,7 @@ namespace CatchColdMod
         [Section("Cold Risk")]
 
         [Name("Cold Risk Timer")]
-        [Description("Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours")]
+        [Description("Number of hours when the cold risk timer rolls its dice for the affliction. Default: 6 hours")]
         [Slider(2, 24)]
         public float RiskThresholdHours = 6;
 

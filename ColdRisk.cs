@@ -18,6 +18,7 @@ namespace CatchColdMod.Afflictions
         private float m_RiskMinutes;
         private float m_LastUpdateHour;
         private float m_TimeAtMaxRisk = 0f;
+        private const float WARM_RECOVERY_MULTIPLIER = 0.5f;
 
         public ColdRiskAffliction(): base("Cold Risk","The cold","You are at risk of catching a cold. To decrease the risk, warm yourself up completely!",null, "CatchColdMod.Resources.snowflake.png", AfflictionBodyArea.Chest, true)
         {
@@ -59,7 +60,7 @@ namespace CatchColdMod.Afflictions
             }
             else if (isMaxWarm)
             {
-                m_RiskMinutes -= deltaMinutes;
+                m_RiskMinutes -= deltaMinutes * WARM_RECOVERY_MULTIPLIER;
             }
 
             float threshold = CatchColdSettings.Instance.RiskThresholdHours * 60f;
