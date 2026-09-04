@@ -88,7 +88,7 @@ namespace CatchColdMod.Afflictions
             {
                 m_TimeAtMaxRisk = 0f;
             }
-            if (m_RiskMinutes <= 0f)
+            if (m_RiskMinutes <= 0f && !isColdOrWorse)
             {
                 DebugHelper.Log("[CatchColdMod] Cold risk fully removed");
                 SaveDataManager.ColdRiskMinutes = 0f;

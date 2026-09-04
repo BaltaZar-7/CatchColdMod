@@ -8,34 +8,34 @@ namespace CatchColdMod
     {
         public static CatchColdSettings Instance { get; private set; }
 
-        [Section("Cold Risk")]
+        [Section("CCM.ColdRisk.Section", Localize = true)]
 
-        [Name("Cold Risk Timer")]
-        [Description("Number of hours when the cold risk timer rolls its dice for the affliction. Default: 6 hours")]
+        [Name("CCM.RiskThresholdHours.Name", Localize = true)]
+        [Description("CCM.RiskThresholdHours.Decription", Localize = true)]
         [Slider(2, 24)]
         public float RiskThresholdHours = 6;
 
-        [Name("Cold Risk Roll Chance")]
-        [Description("Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff")]
+        [Name("CCM.BaseRiskToColdChance.Name", Localize = true)]
+        [Description("CCM.BaseRiskToColdChance.Description", Localize = true)]
         [Slider(50, 100)]
         public float BaseRiskToColdChance = 80;
 
-        [Section("Cold Affliction")]
+        [Section("CCM.ColdAffliction.Section", Localize = true)]
 
-        [Name("Cold Affliction base duration")]
-        [Description("The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days")]
+        [Name("CCM.ColdDurationDays.Name", Localize = true)]
+        [Description("CCM.ColdDurationDays.Description", Localize = true)]
         [Slider(3, 14)]
         public float ColdDurationDays = 7;
 
-        [Section("Pneumonia")]
+        [Section("CCM.Pneumonia.Section", Localize = true)]
 
-        [Name("Pneumonia Affliction duration")]
-        [Description("The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)")]
+        [Name("CCM.PneumoniaDurationDays.Name", Localize = true)]
+        [Description("CCM.PneumoniaDurationDays.Description", Localize = true)]
         [Slider(6, 10)]
         public float PneumoniaDurationDays = 7;
 
-        [Name("Reishi and burdock tea as remedy for Pneumonia")]
-        [Description("Should these teas be used to treat Pneumonia? Default: No")]
+        [Name("CCM.TeasCountForPneumonia.Name", Localize = true)]
+        [Description("CCM.TeasCountForPneumonia.Description", Localize = true)]
         public bool TeasCountForPneumonia = false;
 
         protected override void OnConfirm()

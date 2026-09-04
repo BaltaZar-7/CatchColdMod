@@ -1,0 +1,375 @@
+{
+  "English": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+  },
+  "Russian": {
+
+    "CCM.ColdRisk.Section": "Простуда",
+
+    "CCM.RiskThresholdHours.Name": "Таймер \"Простуды\".",
+    "CCM.RiskThresholdHours.Decription": "Количество часов, в течение которых таймер \"Простуда\" запускает действие данного недуга. По умолчанию: 8 часов.",
+
+    "CCM.BaseRiskToColdChance.Name": "Шанс подхватить \"Простуду\"",
+    "CCM.BaseRiskToColdChance.Description": "Шанс подхватить \"Простуду\". По умолчанию: 80%. Зависит от уровня витамина С, устойчивости к холоду.",
+
+    "CCM.ColdAffliction.Section": "Болезнь \"Простуда\".",
+
+    "CCM.ColdDurationDays.Name": "Продолжительность болезни \"Простуда\"",
+    "CCM.ColdDurationDays.Description": "Базовая продолжительность \"Простуды\" в днях. Ее можно сократить с помощью чая и сна. По умолчанию: 7 дней",
+
+    "CCM.Pneumonia.Section": "Пневмония",
+
+    "CCM.PneumoniaDurationDays.Name": "Продолжительность пневмонии",
+    "CCM.PneumoniaDurationDays.Description": "Длительность заболевания пневмонией. Не рекомендуется устанавливать большое значение, так как это заболевание сопровождается постоянным ухудшением состояния. По умолчанию: 7 дней; - Количество доз антибиотика не может быть изменено (1 доза в сутки ).",
+
+    "CCM.TeasCountForPneumonia.Name": "Чай из рейши и лопуха как средство от пневмонии",
+    "CCM.TeasCountForPneumonia.Description": "Следует ли использовать эти чаи для лечения пневмонии? По умолчанию: Нет"
+
+  },
+  "French": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "German": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Spanish": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Brazilian": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Polish": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Czech": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Turkish": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Italian": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Dutch": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Japanese": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "Korean": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "ChineseSimplified": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  },
+  "ChineseTraditional": {
+
+    "CCM.ColdRisk.Section": "Cold Risk",
+
+    "CCM.RiskThresholdHours.Name": "Cold Risk Timer",
+    "CCM.RiskThresholdHours.Decription": "Number of hours when the cold risk timer rolls its dice for the affliction. Default: 8 hours",
+
+    "CCM.BaseRiskToColdChance.Name": "Cold Risk Roll Chance",
+    "CCM.BaseRiskToColdChance.Description": "Percentage value indicating the likelihood of catching a cold when the roll comes. Default: 80%. -Modified further by: Vitamin C level, Cold Resistance buff",
+
+    "CCM.ColdAffliction.Section": "Cold Affliction",
+
+    "CCM.ColdDurationDays.Name": "Cold Affliction base duration",
+    "CCM.ColdDurationDays.Description": "The base duration of the Cold affliction in days. It can be shortened with teas and sleep. Default: 7 days",
+
+    "CCM.Pneumonia.Section": "Pneumonia",
+
+    "CCM.PneumoniaDurationDays.Name": "Pneumonia Affliction duration",
+    "CCM.PneumoniaDurationDays.Description": "The duration of the Pneumonia affliction. It is not advisable to set this a high number, as this affliction comes with constant condition damage. Default: 7 days; -The number of doses is cannot be modified (6 doses)",
+
+    "CCM.TeasCountForPneumonia.Name": "Reishi and burdock tea as remedy for Pneumonia",
+    "CCM.TeasCountForPneumonia.Description": "Should these teas be used to treat Pneumonia? Default: No"
+
+
+  }
+}
